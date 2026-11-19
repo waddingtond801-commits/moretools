@@ -1,0 +1,70 @@
+// <![CDATA[
+window.modules = [];
+/* window.modules["2"] */
+"use strict";
+(self.modules = self.modules || []).push([["2"], {
+    2: (i, s, E) => {
+        let {PAGE_TYPES: e} = E("16");
+        function T(i) {
+            return (Array.isArray(i) ? i : [i]).includes(window.CNN.contentModel?.pageType || window.CNN.helpers?.PAGE_TYPES.UNKNOWN)
+        }
+        i.exports = {
+            isArticle: () => T(e.ARTICLE),
+            isAudio: () => T(e.AUDIO),
+            isCustom: () => T(e.CUSTOM),
+            isDTC: () => T(e.DTC),
+            isCommunityEvent: () => T(e.COMMUNITY_EVENT),
+            isElection: () => T(e.ELECTION),
+            isFeed: () => T(e.FEED),
+            isGallery: () => T(e.GALLERY),
+            isInteractive: () => T(e.INTERACTIVE),
+            isLivestream: () => T(e.LIVESTREAM),
+            isVerticalLivestream: () => T(e.VERTICAL_LIVESTREAM),
+            isLivestory: () => T(e.LIVESTORY),
+            isSubscriptionPage: () => T(e.SUBSCRIPTION_PAGE),
+            isNewsletterLandingPage: () => T(e.NEWSLETTER_LANDING_PAGE),
+            isProfile: () => T(e.PROFILE),
+            isScratchpad: () => T(e.SCRATCHPAD),
+            isSearch: () => T(e.SEARCH),
+            isSection: () => T(e.SECTION),
+            isSeries: () => T(e.SERIES),
+            isStatic: () => T(e.STATIC),
+            isTVE: () => T(e.TVE),
+            isTVEEpisode: () => T(e.TVE_EPISODE),
+            isTVEFilm: () => T(e.TVE_FILM),
+            isTVESeries: () => T(e.TVE_SERIES),
+            isUnknown: () => T(e.UNKNOWN),
+            isUserManagement: () => T(e.USER_MANAGEMENT),
+            isVerticalVideo: () => T(e.VERTICAL_VIDEO),
+            isVideo: () => T(e.VIDEO),
+            isNewsletterPage: () => T(e.NEWSLETTER_PAGE),
+            isVitalAction: () => T(e.VITAL_ACTION),
+            isVitalStory: () => T(e.VITAL_STORY),
+            isPageType: T,
+            PAGE_TYPES: e
+        }
+    }
+}]);
+/* window.modules["3"] */
+"use strict";
+(self.modules = self.modules || []).push([["3"], {
+    3: e => {
+        e.exports = new ResizeObserver(e => {
+            let t = {
+                "EQ-breakpoint__small": 480,
+                "EQ-breakpoint__medium": 960,
+                "EQ-breakpoint__large": 1280,
+                "EQ-breakpoint__xtralarge": 1360
+            };
+            e.forEach(function(e) {
+                let a = e.target.dataset.breakpoints ? JSON.parse(e.target.dataset.breakpoints) : t;
+                Object.keys(a).forEach(t => {
+                    let s = a[t];
+                    e.contentRect.width >= s ? e.target.classList.add(t) : e.target.classList.remove(t)
+                }
+                )
+            })
+        }
+        )
+    }
+}]);
